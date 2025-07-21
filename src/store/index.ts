@@ -1,4 +1,10 @@
-import { configureStore, Reducer, UnknownAction } from '@reduxjs/toolkit';
+import {
+  AnyAction,
+  configureStore,
+  Reducer,
+  ThunkDispatch,
+  UnknownAction,
+} from '@reduxjs/toolkit';
 import authReducer from './reducers/authReducer';
 import { AuthAction, AuthState } from './types';
 
@@ -19,6 +25,6 @@ const store = configureStore({
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = ThunkDispatch<RootState, null, AuthAction>;
 
 export default store;

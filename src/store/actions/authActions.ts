@@ -12,11 +12,10 @@ import {
   User,
 } from '../types';
 import { RootState } from '..';
-import firebase, { auth, firestore } from '../../firebase/config';
+import { auth, firestore } from '../../firebase/config';
 import 'firebase/firestore';
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   sendEmailVerification,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
