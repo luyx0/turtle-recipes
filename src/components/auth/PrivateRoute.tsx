@@ -1,16 +1,16 @@
-import { FC, ComponentType } from 'react';
+import { FC, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { RootState } from '../../store';
 
-interface Props {
-  component: ComponentType<any>;
+interface PrivateRouteProps {
+  children: ReactNode;
 }
 
-const PrivateRoute: FC<Props> = ({ component: Component }) => {
+const PrivateRoute: FC<PrivateRouteProps> = ({ children }) => {
   const { authenticated } = useSelector((state: RootState) => state.auth);
 
-  return authenticated ? <Component /> : <Navigate to="/signin" />;
+  return authenticated ? <>{children}</> : <Navigate to="/signin" />;
 };
 
 export default PrivateRoute;

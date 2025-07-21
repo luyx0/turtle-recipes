@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
 import { setError, signup } from '../../store/actions/authActions';
-import { sign } from 'node:crypto';
 import Message from '../UI/Message';
 import Input from '../UI/input';
 import Button from '../UI/Button';
+import PasswordInput from '../UI/PasswordInput';
 
 const SignUp: FC = () => {
   const [firstName, setFirstName] = useState('');
@@ -50,14 +50,7 @@ const SignUp: FC = () => {
             placeholder="Email address"
             label="Email address"
           />
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={e => setPassword(e.currentTarget.value)}
-            placeholder="Password"
-            label="Password"
-          />
+          <PasswordInput password={password} setPassword={setPassword} />
           <Button
             text={loading ? 'Loading...' : 'Sign Up'}
             className="is-primary is-fullwidth mt-5"

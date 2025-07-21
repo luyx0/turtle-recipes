@@ -1,16 +1,16 @@
-import { FC, ComponentType } from 'react';
+import { FC, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { RootState } from '../../store';
 
-interface Props {
-  component: ComponentType<any>;
+interface PublicRouteProps {
+  children: ReactNode;
 }
 
-const PublicRoute: FC<Props> = ({ component: Component }) => {
+const PublicRoute: FC<PublicRouteProps> = ({ children }) => {
   const { authenticated } = useSelector((state: RootState) => state.auth);
 
-  return authenticated ? <Component /> : <Navigate to="/dashboard" />;
+  return !authenticated ? <>{children}</> : <Navigate to="/dashboard" />;
 };
 
 export default PublicRoute;

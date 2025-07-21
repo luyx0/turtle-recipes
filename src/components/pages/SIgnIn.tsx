@@ -7,6 +7,7 @@ import Message from '../UI/Message';
 import Input from '../UI/input';
 import Button from '../UI/Button';
 import { Link } from 'react-router-dom';
+import PasswordInput from '../UI/PasswordInput';
 
 const SignIn: FC = () => {
   const [email, setEmail] = useState('');
@@ -42,14 +43,7 @@ const SignIn: FC = () => {
             placeholder="Email address"
             label="Email address"
           />
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={e => setPassword(e.currentTarget.value)}
-            placeholder="Password"
-            label="Password"
-          />
+          <PasswordInput password={password} setPassword={setPassword} />
           <p>
             <Link to="/forgot-password">Forgot password?</Link>
           </p>

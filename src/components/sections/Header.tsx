@@ -19,13 +19,18 @@ const Header: FC = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to={authenticated ? '/' : '/dashboard'}>
+            <img
+              src="/turtleRecipes.png"
+              alt="TurtleRecipes"
+              style={{ height: '60px', marginRight: '10px' }}
+            />
             TurtleRecipes
           </Link>
         </div>
         <div className="navbar-end">
           <div className="navbar-items">
             {!authenticated ? (
-              <div className="buttons">
+              <div className="buttons mt-2">
                 <Button
                   text="Sign Up"
                   onClick={() => history('/signup')}
